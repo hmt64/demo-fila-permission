@@ -42,7 +42,7 @@ class AppPanelProvider extends PanelProvider
                 ->label('Admin')
                 ->icon('heroicon-o-star')
                 ->url('/admin')
-                ->visible(fn () => auth()->user()->isAdmin())
+                ->visible(fn () => auth()->user()->hasRole('super_admin'))
             ])
             ->discoverResources(in: app_path('Filament/App/Resources'), for: 'App\\Filament\\App\\Resources')
             ->discoverPages(in: app_path('Filament/App/Pages'), for: 'App\\Filament\\App\\Pages')
